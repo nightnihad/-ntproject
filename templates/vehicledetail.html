@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+<br> {% block body %}
+<p>{{vehicle.get_average_speed}}(km)</p>
+<p>{{vehicle.brand}}</p>
+<p>{{vehicle.name}}</p>
+<p>{{vehicle.engine_status}}</p>
+<p>{{vehicle.engine}}</p>
+<p>{{vehicle.fuel_status}}</p>
+<p>{{vehicle.colour}}</p>
+<p>{{vehicle.speed}}(km)</p>
+<p>{{vehicle.total_traveled}}(km)</p>
+<p>{{vehicle.total_traveled_time}}(hour)</p>
+<p>{{vehicle.temperature}}(°C)</p>
+<p>{{vehicle.car_status}}</p>
+<a href="{% url 'vehicledelete' id=vehicle.id %}">Delete car</a>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{ vehicle.image.url }}" alt="Card image cap">
+</div>
+
+{% endblock body %}

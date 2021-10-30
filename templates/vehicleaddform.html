@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block body %}
+<form action="" enctype="multipart/form-data" method="POST">
+    {% csrf_token %} 
+    {{form.as_p}}
+    <input type="submit" class="btn btn-danger mt-3 mb-3" value="Yazı Oluştur" />
+  
+</form>
+  {% endblock body %}

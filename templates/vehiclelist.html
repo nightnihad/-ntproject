@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% load static %}
+<br>
+{% block body %}
+{% for vehicle in vehicles %}
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{ vehicle.image.url }}" alt="Card image cap">
+  <div class="card-body">
+<p>{{vehicle.brand}}</p>
+<p>{{vehicle.name}}</p>
+<p>{{vehicle.get_average_speed}}(km)</p>
+<p>{{vehicle.engine_status}}</p>
+<p>{{vehicle.engine}}</p>
+<p>{{vehicle.fuel_status}}</p>
+<p>{{vehicle.colour}}</p>
+<p>{{vehicle.speed}}(km)</p>
+<p>{{vehicle.total_traveled}}(km)</p>
+<p>{{vehicle.total_traveled_time}}(hour)</p>
+<p>{{vehicle.temperature}}(°C)</p>
+<p>{{vehicle.car_status}}</p>
+  </div>
+</div>
+
+<a href="{% url 'vehicledetail' id=vehicle.id %}">Car details</a>
+{% endfor %}
+{% endblock body %}
