@@ -1,10 +1,9 @@
 {% extends 'layout.html' %}
-{% block title%} silmek isteyirsen? {% endblock%}
 
 {% block body %}
     <form method="POST">
         {% csrf_token %}
-        <p>Silmek istediğinizden emin misiniz?</p>
-        <input type="submit" class="btn btn-danger mt-3 mb-3" value="Evet" />
+        <p>are you really wanna delete this?</p>
+        <input type="submit" class="btn btn-danger mt-3 mb-3" value="Yes!" />
     </form>
 {% endblock %}

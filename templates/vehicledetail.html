@@ -1,20 +1,77 @@
 {% extends 'layout.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
 <br> {% block body %}
-<p>{{vehicle.get_average_speed}}(km)</p>
-<p>{{vehicle.brand}}</p>
-<p>{{vehicle.name}}</p>
-<p>{{vehicle.engine_status}}</p>
-<p>{{vehicle.engine}}</p>
-<p>{{vehicle.fuel_status}}</p>
-<p>{{vehicle.colour}}</p>
-<p>{{vehicle.speed}}(km)</p>
-<p>{{vehicle.total_traveled}}(km)</p>
-<p>{{vehicle.total_traveled_time}}(hour)</p>
-<p>{{vehicle.temperature}}(°C)</p>
-<p>{{vehicle.car_status}}</p>
-<a href="{% url 'vehicledelete' id=vehicle.id %}">Delete car</a>
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="{{ vehicle.image.url }}" alt="Card image cap">
+<div class="container">
+
+    <div class="row justify-content-start">
+        <div class="col-4">
+            Vehicle name:{{vehicle.name}}
+        </div>
+        <div class="col-4">
+            Vehicle brand:{{vehicle.brand}}
+        </div>
+    </div>
+    <br>
+
+    <hr>
+    <div class="row justify-content-around">
+        <div class="col-4">
+            Average Speed:{{vehicle.get_average_speed}}(km)
+        </div>
+        <div class="col-4">
+            Engine status:{{vehicle.engine_status}}
+        </div>
+    </div>
+    <Br>
+    <hr>
+    <div class="row justify-content-around">
+        <div class="col-4">
+            Engine type:{{vehicle.engine}}
+        </div>
+        <div class="col-4">
+            Vehicle colour:{{vehicle.colour}}
+
+        </div>
+    </div>
+    <hr>
+    <br>
+    <div class="card" style="width: 22rem; padding:20px;">
+        <img class="card-img-top" src="{{ vehicle.image.url }}" alt="Card image cap">
+    </div>
+    <div class="row justify-content-around">
+        <div class="col-4">
+            Fuel status:{{vehicle.fuel_status}}
+        </div>
+        <br>
+        <hr>
+        <div class="col-4">
+            Max speed:{{vehicle.speed}}
+        </div>
+    </div>
+    <hr>
+    <div class="row justify-content-around">
+        <div class="col-4">
+            Total traveled:{{vehicle.total_traveled}}(km)
+        </div>
+        <div class="col-4">
+            Total travel time:{{vehicle.total_traveled_time}}(km)
+        </div>
+        <hr>
+        <br>
+        <div class="col-8">
+            Vehicle temperature:{{vehicle.temperature}}(C°)
+        </div>
+    </div>
+    <p>{{vehicle.car_status}}</p>
+    <a href="{% url 'vehicledelete' id=vehicle.id %}" class="btn btn-danger">Delete car</a>
+    <a href="{% url 'vehicleupdate' id=vehicle.id %}" class="btn btn-info">Update car</a>
+    <br>
+    <hr>
 </div>
+</div>
+
+
+
 
 {% endblock body %}

@@ -18,12 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
-from Vehicle.forms import VehicleAddForm
-from Vehicle.views import VehicleDelete, VehicleList,VehicleAdd,VehicleDetail
+from Vehicle.views import VehicleDelete, VehicleList,VehicleAdd,VehicleDetail,VehicleUpdate
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('vehiclelist/',VehicleList.as_view(),name='vehiclelist'),
+    path('',VehicleList.as_view(),name='vehiclelist'),
     path('vehicleadd/', VehicleAdd.as_view(),name='vehicleadd'),
     path('vehicledetail/<str:id>/',VehicleDetail.as_view(),name='vehicledetail'),
-    path('vehicledelete/<str:id>/',VehicleDelete.as_view(),name='vehicledelete')
+    path('vehicledelete/<str:id>/',VehicleDelete.as_view(),name='vehicledelete'),
+    path('vehicleupdate/<str:id>/',VehicleUpdate.as_view(),name='vehicleupdate')
 ]+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

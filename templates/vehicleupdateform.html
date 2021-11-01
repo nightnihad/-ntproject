@@ -1,9 +1,13 @@
 {% extends 'layout.html' %}
+{% load static %}
 {% block body %}
+<link rel="stylesheet" href="{% static 'style3.css' %}">
+<div class='container'>
 <form action="" enctype="multipart/form-data" method="POST">
     {% csrf_token %} 
     {{form.as_p}}
     <input type="submit" class="btn btn-danger mt-3 mb-3" value="Yazı Oluştur" />
   
 </form>
+</div>
   {% endblock body %}

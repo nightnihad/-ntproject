@@ -51,3 +51,8 @@ ul li:hover a {
 .sidebar ul a i {
     margin-right: 5px;
 }
+
+.col-4 {
+    color: #5a6063;
+    padding: 20px;
+}
